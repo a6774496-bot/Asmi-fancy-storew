@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asmi Fancy Store - Premium Collection | Bhamka Chok, Daijee</title>
+    <meta name="robots" content="index, follow"> 
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div id="weather-widget">
+        <div class="weather-header">
+            <i class="fas fa-cloud-sun"></i> तापक्रम
+        </div>
+        <div id="weather-info">
+            <p>लोड हुँदै...</p>
+        </div>
+    </div>
+    <div id="weather-warning" style="display:none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p id="warning-message"></p>
+        <a href="https://wa.me/9848488830" target="_blank" class="btn warning-btn">
+            घरमै बसी अर्डर गर्नुहोस्!
+        </a>
+    </div>
+    <div class="card-container">
+        
+        <header class="hero-section">
+            <div class="hero-background"></div> 
+            
+            <div class="hero-overlay">
+                <p class="proprietor-info">Proprietor: Nirmala Pant</p>
+                <h1 class="store-name">Asmi Fancy Store</h1>
+                <p class="service-tag highlight-text">
+                    नेपालमा **नयाँ फेसन** र **उच्च गुणस्तर**को ग्यारेन्टी
+                </p>
+            </div>
+            <a href="#contact-buttons" class="scroll-down-btn">
+                <i class="fas fa-arrow-down"></i> सम्पर्क र अफरहरू हेर्नुहोस्
+            </a>
+        </header>
+
+        <section class="contact-buttons-section" id="contact-buttons">
+            <a href="tel:9805649963" class="btn contact-btn call-btn">
+                <i class="fas fa-phone"></i> Call Now (9805649963)
+            </a>
+            <a href="https://wa.me/9848488830" target="_blank" class="btn contact-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Order
+            </a>
+            <a href="javascript:void(0);" 
+                class="btn contact-btn map-btn" 
+                onclick="document.getElementById('products-start').scrollIntoView({ behavior: 'smooth' });">
+                <i class="fas fa-search"></i> **उत्पादन क्याटलग हेर्नुहोस्**
+            </a>
+        </section>
+        
+        <section class="product-catalog-section">
+            <h2 id="products-start">🛒 हाम्रो विशेष संग्रह</h2>
+            
+            <div class="product-grid">
+                
+                <div class="product-item">
+                    <img src="product1.jpg" alt="Casual Shirt" class="product-img"> 
+                    <div class="product-info">
+                        <h3 class="product-name">कटन क्याजुअल सर्ट</h3>
+                        <p class="product-desc">उच्च गुणस्तरको कटनमा तयार, हरेक अवसरको लागि उपयुक्त।</p>
+                        <p class="product-price">रु. 999.00</p>
+                        
+                        <div class="payment-options">
+                            <a href="https://wa.me/9848488830?text=मलाई%20कटन%20क्याजुअल%20सर्ट%20(रु.%20999)%20चाहियो।" 
+                               target="_blank" 
+                               class="btn order-btn whatsapp-order">
+                                <i class="fas fa-shopping-cart"></i> WhatsApp अर्डर
+                            </a>
+                            <a href="javascript:void(0);" 
+                               class="btn order-btn esewa-btn" 
+                               onclick="showPaymentDetails()">
+                                <i class="fas fa-money-check-alt"></i> eSewa/Khalti
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <img src="product2.jpg" alt="Denim Jeans" class="product-img"> 
+                    <div class="product-info">
+                        <h3 class="product-name">स्लिम फिट डेनिम जिन्स</h3>
+                        <p class="product-desc">टिकाउ डेनिम कपडा, आरामदायक र फेसनदार स्लिम फिट डिजाइन।</p>
+                        <p class="product-price">रु. 1,850.00</p>
+                        
+                         <div class="payment-options">
+                             <a href="https://wa.me/9848488830?text=मलाई%20स्लिम%20फिट%20डेनिम%20जिन्स%20(रु.%201850)%20चाहियो।" 
+                               target="_blank" 
+                               class="btn order-btn whatsapp-order">
+                                <i class="fas fa-shopping-cart"></i> WhatsApp अर्डर
+                            </a>
+                            <a href="javascript:void(0);" 
+                               class="btn order-btn esewa-btn" 
+                               onclick="showPaymentDetails()">
+                                <i class="fas fa-money-check-alt"></i> eSewa/Khalti
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-item">
+                    <img src="product3.jpg" alt="Premium T-Shirt" class="product-img"> 
+                    <div class="product-info">
+                        <h3 class="product-name">प्रिमियम टी-सर्ट</h3>
+                        <p class="product-desc">उत्कृष्ट फिटिङ र आरामदायी कपडामा तयार।</p>
+                        <p class="product-price">रु. 2,499.00</p>
+                        
+                         <div class="payment-options">
+                             <a href="https://wa.me/9848488830?text=मलाई%20प्रिमियम%20टी-सर्ट%20(रु.%202499)%20चाहियो।" 
+                               target="_blank" 
+                               class="btn order-btn whatsapp-order">
+                                <i class="fas fa-shopping-cart"></i> WhatsApp अर्डर
+                            </a>
+                            <a href="javascript:void(0);" 
+                               class="btn order-btn esewa-btn" 
+                               onclick="showPaymentDetails()">
+                                <i class="fas fa-money-check-alt"></i> eSewa/Khalti
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </section>
+        
+        <section class="about-us-section">
+            <h2 class="about-us-title">हाम्रो बारेमा</h2>
+            <div class="about-content">
+                <p>
+                    **नमस्ते! Asmi Fancy Store** तपाईंको **स्टाइल र फ्यासनको उत्कृष्ट गन्तव्य** हो। हामीले सबै उमेरका ग्राहकहरूको रोजाइलाई ध्यानमा राख्दै **नयाँ डिजाइनका कपडा, गिफ्ट आइटम, र फेसन एसेसरीजहरू** उपलब्ध गराउँछौं।
+                </p>
+                
+                <p class="mission-statement">
+                    **हाम्रो मुख्य उद्देश्य:** हरेक ग्राहकलाई **गुणस्तरीय सामान, उत्कृष्ट सेवा र पूर्ण सन्तुष्टि** प्रदान गर्नु हो।
+                </p>
+                
+                <p style="font-weight: 700; color: #FFD700; margin-top: 25px; font-size: 1.2em;">
+                    हामी विश्वास गर्छौं — फ्यासन केवल लुगा होइन, **तपाईंको व्यक्तित्वको सशक्त अभिव्यक्ति** हो।
+                </p>
+            </div>
+            <p style="color: #ccc; font-size: 0.9em; margin-top: 20px;">
+                आउनुहोस्, Asmi Fancy Store मा आफ्नो मनपर्ने वस्तु छान्नुहोस् र **नयाँ शैलीमा चम्किनुहोस् ✨**
+            </p>
+            <a href="https://wa.me/9848488830" target="_blank" class="btn about-btn">
+                <i class="fab fa-whatsapp"></i> आजै हामीलाई सम्पर्क गर्नुहोस्
+            </a>
+        </section>
+        <section class="location-section">
+            <h2>📍 हामी कहाँ छौं?</h2>
+            <p class="address">Asmi Fancy Store - **Bhamka Chok, Daijee, Nepal**</p>
+            <div class="map-embed">
+                <iframe 
+                    width="100%" 
+                    height="300" 
+                    frameborder="0" 
+                    style="border:0; border-radius: 10px;" 
+                    referrerpolicy="no-referrer-when-downgrade" 
+                    loading="lazy" 
+                    allowfullscreen 
+                    src="https://maps.app.goo.gl/BhamkaChok12"
+                ></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/BhamkaChok13" 
+               target="_blank" 
+               class="btn map-btn" style="color: #121212; margin-top: 20px;">
+                <i class="fas fa-directions"></i> **बाटो, दूरी र रुट हेर्नुहोस्**
+            </a>
+        </section>
+
+        <footer class="footer-section">
+            <p>Email: a6774496@gmail.com | © 2025 Asmi Fancy Store. All Rights Reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const eSewaID = '9812714019'; 
+        const accountName = 'Nirmala Pant';
+
+        function showPaymentDetails() {
+            alert(
+                "भुक्तानी गर्नुअघि, कृपया WhatsApp मार्फत सामानको उपलब्धता निश्चित गर्नुहोस्।\n\n" +
+                "eSewa/Khalti भुक्तानीको लागि:\n" +
+                "1. आफ्नो eSewa/Khalti एप खोल्नुहोस्।\n" +
+                "2. Pay/Send Money विकल्प छान्नुहोस्।\n" +
+                "3. ID नम्बर (" + eSewaID + ") हाल्नुहोस्।\n" +
+                "4. eSewa ले स्वतः 'नाम: " + accountName + "' देखाउँछ।\n\n" +
+                "नाम मिलेपछि मात्र भुक्तानी गर्नुहोस्।"
+            );
+        }
+        
+        // =========================================
+        // WEATHER API SCRIPT AND WARNING LOGIC
+        // =========================================
+        function fetchWeather() {
+            const apiKey = 'a3da945d263598950f1c5d7d23953a0d'; 
+            const lat = 29.1558; 
+            const lon = 80.3556;
+            
+            const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const tempCelsius = data.main.temp.toFixed(1); 
+                    const temp = parseFloat(tempCelsius);
+                    const weatherDescription = data.weather[0].description;
+                    const location = data.name || 'Daijee'; 
+
+                    const weatherInfo = document.getElementById('weather-info');
+                    weatherInfo.innerHTML = `
+                        <div class="weather-temp">${tempCelsius}°C</div>
+                        <div class="weather-details">
+                            ${location} | ${weatherDescription}
+                        </div>
+                    `;
+                    
+                    const warningDiv = document.getElementById('weather-warning');
+                    const warningMessage = document.getElementById('warning-message');
+
+                    if (temp >= 35) {
+                        warningMessage.innerHTML = `🔥 **तापक्रम ${temp}°C छ!** बाहिर ननिस्किनुहोस्, हामी घरमै डेलिभर गर्छौँ।`;
+                        warningDiv.style.display = 'block';
+                    } else if (temp <= 5) {
+                        warningMessage.innerHTML = `🥶 **तापक्रम ${temp}°C छ!** कठ्याङ्ग्रिने जाडो छ, घरभित्रै बसी अर्डर गर्नुहोस्।`;
+                        warningDiv.style.display = 'block';
+                    } else {
+                        warningDiv.style.display = 'none'; 
+                    }
+
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById('weather-info').innerHTML = 
+                        '<p>वेदर डाटा उपलब्ध भएन।</p>';
+                });
+        }
+
+        window.onload = function() {
+            fetchWeather(); 
+        }
+    </script>
+</body>
+</html>
