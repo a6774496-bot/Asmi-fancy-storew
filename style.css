@@ -102,7 +102,7 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
     padding: 20px;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+    cursor: default;
 }
 
 .product-card:hover { 
@@ -130,19 +130,41 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
 .product-card p { font-size: 0.95rem; color: #666; margin-bottom: 10px; }
 .product-card .price { font-size: 1.2rem; font-weight: bold; color: var(--secondary-color); }
 
+/* Button Group for Two Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 .open-modal-button {
     background: var(--primary-color);
     color: var(--text-light);
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 15px;
     font-weight: bold;
+    flex-grow: 1; /* Equal width */
     transition: background 0.3s, transform 0.3s;
 }
 
-.open-modal-button:hover { background: var(--secondary-color); transform: scale(1.05); }
+.open-modal-button:hover { background: #30419d; }
+
+.whatsapp-order-button {
+    background: var(--success-color); /* WhatsApp Green */
+    color: var(--text-light);
+    border: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-grow: 1; /* Equal width */
+    transition: background 0.3s, transform 0.3s;
+}
+
+.whatsapp-order-button:hover { background: #128c7e; }
 
 
 /* Contact Section Styles */
@@ -162,6 +184,19 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
 }
 .contact-details h3, .payment-details h3 { color: var(--text-dark); margin-bottom: 20px; font-size: 1.8rem; }
 .contact-details p, .payment-details p { margin-bottom: 10px; font-size: 1.1rem; }
+
+.whatsapp-contact-button {
+    background: var(--success-color);
+    color: var(--text-light);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+.whatsapp-contact-button:hover { background: #128c7e; }
 
 .esewa-placeholder { 
     height: 100px; 
@@ -301,6 +336,8 @@ footer {
     .headline { font-size: 3rem; }
     .sub-headline { font-size: 1.4rem; }
     .contact-info { grid-template-columns: 1fr; }
+    .button-group { flex-direction: column; } /* Stack buttons on small screens */
+    .open-modal-button, .whatsapp-order-button { width: 100%; }
 }
 @media (max-width: 600px) {
     .headline { font-size: 2.2rem; }
