@@ -1,34 +1,67 @@
-// JavaScript for WhatsApp Direct Order and Smooth Scroll
+// JavaScript for Order Modal and Smooth Scroll
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Your WhatsApp number (using the number you provided)
-    const whatsappNumber = '9779848488830'; 
-    
-    // 1. WhatsApp Order Functionality (Add to Cart style)
-    const productCards = document.querySelectorAll('.product-card');
+    // Modal Elements
+    const modal = document.getElementById('order-modal');
+    const closeButton = document.querySelector('.close-button');
+    const productNameInput = document.getElementById('product_name');
+    const priceDetailInput = document.getElementById('price_detail');
+    const orderForm = document.getElementById('order-form');
 
-    productCards.forEach(card => {
-        const orderButton = card.querySelector('.add-to-cart-button');
-        const productName = card.getAttribute('data-product');
+    // 1. Open Modal Functionality
+    const openModalButtons = document.querySelectorAll('.open-modal-button');
 
-        if (orderButton && productName) {
-            orderButton.addEventListener('click', function() {
-                // Nepali message for WhatsApp
-                const message = `नमस्ते! म Asmi Fancy Store बाट "${productName}" अर्डर गर्न चाहन्छु। मूल्य: ${card.querySelector('.price').textContent.trim()}। कृपया यो उपलब्ध छ/छैन, जानकारी दिनुहोला।`;
-                
-                // Encode the message for the URL
-                const encodedMessage = encodeURIComponent(message);
-                
-                // Construct the final WhatsApp URL
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-                
-                // Open WhatsApp link in a new tab
-                window.open(whatsappUrl, '_blank');
-            });
+    openModalButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = button.closest('.product-card');
+            const productName = card.getAttribute('data-product');
+            const price = card.getAttribute('data-price'); // Use data-price attribute
+            
+            // Set values in the form fields
+            productNameInput.value = productName;
+            priceDetailInput.value = price;
+            
+            modal.style.display = 'block';
+        });
+    });
+
+    // 2. Close Modal Functionality
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+        orderForm.reset(); // Clear form on close
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            orderForm.reset(); // Clear form on close
         }
     });
 
-    // 2. Smooth Scroll for Navigation Links
+    // 3. Form Submission Handling (Formspree Fetch API)
+    orderForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Use Fetch API to submit form data to Formspree without full page reload
+        const response = await fetch(orderForm.action, {
+            method: 'POST',
+            body: new FormData(orderForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert('धन्यवाद! तपाईंको अर्डर सफलतापूर्वक सबमिट भएको छ। हामी छिट्टै तपाईंलाई सम्पर्क गर्नेछौं।');
+            modal.style.display = 'none';
+            orderForm.reset();
+        } else {
+            alert('अर्डर सबमिट गर्न समस्या भयो। कृपया आफ्नो विवरणहरू जाँच्नुहोस्।');
+        }
+    });
+
+
+    // 4. Smooth Scroll for Navigation Links
     const headerHeight = document.querySelector('header').offsetHeight;
 
     document.querySelectorAll('nav a').forEach(anchor => {
