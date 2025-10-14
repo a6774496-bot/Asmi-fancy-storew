@@ -1,6 +1,9 @@
-// JavaScript for Order Modal and Smooth Scroll
+// JavaScript for Order Modal, WhatsApp Order, and Smooth Scroll
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Your WhatsApp number 
+    const whatsappNumber = '9779848488830'; 
+
     // Modal Elements
     const modal = document.getElementById('order-modal');
     const closeButton = document.querySelector('.close-button');
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const card = button.closest('.product-card');
             const productName = card.getAttribute('data-product');
-            const price = card.getAttribute('data-price'); // Use data-price attribute
+            const price = card.getAttribute('data-price');
             
             // Set values in the form fields
             productNameInput.value = productName;
@@ -25,7 +28,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 2. Close Modal Functionality
+    // 2. WhatsApp Order Functionality
+    const whatsappOrderButtons = document.querySelectorAll('.whatsapp-order-button');
+    
+    whatsappOrderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = button.closest('.product-card');
+            const productName = card.getAttribute('data-product');
+            const price = card.getAttribute('data-price');
+            
+            // Nepali message for WhatsApp
+            const message = `नमस्ते! म Asmi Fancy Store बाट "${productName}" (मूल्य: ${price}) अर्डर गर्न चाहन्छु। कृपया उपलब्ध छ/छैन, जानकारी दिनुहोला।`;
+            
+            // Encode the message for the URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Construct the final WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp link in a new tab
+            window.open(whatsappUrl, '_blank');
+        });
+    });
+
+
+    // 3. Close Modal Functionality
     closeButton.addEventListener('click', function() {
         modal.style.display = 'none';
         orderForm.reset(); // Clear form on close
@@ -38,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 3. Form Submission Handling (Formspree Fetch API)
+    // 4. Form Submission Handling (Formspree Fetch API)
     orderForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -61,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // 4. Smooth Scroll for Navigation Links
+    // 5. Smooth Scroll for Navigation Links
     const headerHeight = document.querySelector('header').offsetHeight;
 
     document.querySelectorAll('nav a').forEach(anchor => {
