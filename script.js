@@ -29,5 +29,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 2. Smooth Scroll for Navigation Links
-    // ... rest of the JS code for smooth scroll ...
+    const headerHeight = document.querySelector('header').offsetHeight;
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Scroll smoothly to the target section, adjusting for the sticky header
+                window.scrollTo({
+                    top: targetElement.offsetTop - headerHeight - 10,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
