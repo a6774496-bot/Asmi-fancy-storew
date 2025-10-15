@@ -110,11 +110,22 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* --- ADDED CODE: Product Image Styling (Medium Size) --- */
+.product-image {
+    width: 100%;
+    height: 160px; /* Medium Size for better mobile viewing */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* This hides the original placeholder text */
 .image-placeholder {
     height: 250px;
     background-color: #e0e0e0;
     margin-bottom: 15px;
-    display: flex;
+    display: none !important; /* HIDES THE PLACEHOLDER */
     justify-content: center;
     align-items: center;
     font-size: 1.4rem;
@@ -125,6 +136,8 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
     position: relative;
     animation: pulseBg 4s infinite;
 }
+/* ---------------------------------------------------- */
+
 
 .product-card h3 { color: var(--primary-color); margin-bottom: 5px; font-size: 1.4rem; }
 .product-card p { font-size: 0.95rem; color: #666; margin-bottom: 10px; }
