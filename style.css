@@ -90,7 +90,8 @@ h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 2rem; }
 /* Products Grid and Cards */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* यो कोडले मोबाइलमा १, ट्याब्लेटमा २ र डेस्कटपमा ३-४ वटा कार्ड देखाउँछ */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 30px;
     max-width: 1300px;
     margin: 0 auto;
